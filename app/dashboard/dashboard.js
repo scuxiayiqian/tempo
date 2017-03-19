@@ -249,7 +249,8 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
         //***********日期开始**********
 
         $scope.getStartDate = function (num) {
-            var startDate = new Date(); //获取今天日期
+            //var startDate = new Date(); //获取今天日期
+            var startDate = new Date('2015-01-08');
             startDate.setDate(startDate.getDate() - num);
             return startDate;
         };
@@ -442,7 +443,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                 title: {
                     text: 'Positive vs Negative',
                     //subtext: '纯属虚构',
-                    left: '40%',
+                    left: '42%',
                     top: 'top'
                 },
                 tooltip: {
@@ -470,7 +471,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                         name: 'Positive',
                         type: 'funnel',
                         width: '30%',
-                        height: '45%',
+                        height: '80%',
                         left: '5%',
                         top: '5%',
                         sort: 'ascending',
@@ -484,7 +485,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                         name: 'Negative',
                         type: 'funnel',
                         width: '30%',
-                        height: '45%',
+                        height: '80%',
                         left: '55%',
                         top: '5%',
                         funnelAlign: 'left',
