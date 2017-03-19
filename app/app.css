@@ -341,3 +341,12 @@ img {
     background: rgba(255, 255, 255, 0.6);
     color: #0f0f0f;
 }
+
+.showDetailInfo {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+}
+
+.showDetailInfo:hover {
+    cursor: pointer;
+}

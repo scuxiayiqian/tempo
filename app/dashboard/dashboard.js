@@ -361,6 +361,14 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
 
 
 //    *****PieChart结束********
+        function toDecimal(x) {
+            var f = parseFloat(x);
+            if (isNaN(f)) {
+                return;
+            }
+            f = Math.round(x * 100) / 100;
+            return f;
+        }
 
 //    ******* keyword analysis start
         $scope.myAnalysisChart = echarts.init(document.getElementById('analysisChart'));
@@ -419,11 +427,11 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                 schema.push($scope.myData.theme);
                 var tempItem1 = {
                     name: $scope.myData[i].theme,
-                    value: parseFloat($scope.myData[i].positive + ($scope.myData[i].neural / 2)) * 100
+                    value: (parseFloat($scope.myData[i].positive + ($scope.myData[i].neural / 2)) * 100).toFixed(2)
                 };
                 var tempItem2 = {
                     name: $scope.myData[i].theme,
-                    value: parseFloat($scope.myData[i].negative + ($scope.myData[i].neural / 2)) * 100
+                    value: (parseFloat($scope.myData[i].negative + ($scope.myData[i].neural / 2)) * 100).toFixed(2)
                 };
                 $scope.positiveData.push(tempItem1);
                 $scope.negativeData.push(tempItem2);

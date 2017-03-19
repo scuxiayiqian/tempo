@@ -1,12 +1,12 @@
-<!--<div class="home-page">-->
-<!--<div class="search-bar search-bar-home">-->
-<!--<input type="text" name="searchWord" id="searchWord" placeholder="Dig whaterver you want..."-->
-<!--ng-model="searchWord"/>-->
-<!--<button class="go-btn" ng-click="searchByKeyword()"></button>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="content" ng-show="showContent">-->
-<div class="content">
+<div class="home-page">
+    <div class="search-bar search-bar-home">
+        <input type="text" name="searchWord" id="searchWord" placeholder="Dig whaterver you want..."
+               ng-model="searchWord"/>
+        <button class="go-btn" ng-click="searchByKeyword()"></button>
+    </div>
+</div>
+<div class="content" ng-show="showContent">
+    <!--<div class="content">-->
     <div class="trend">
         <div class="row">
             <div class="col-md-6">
@@ -118,7 +118,7 @@
                     <!--<li ng-repeat="item in description.topComments">-->
                     <p class="detail-page" ng-click="showMeDetail(key)" ng-show="myDetailPage !== key"><span
                             style="padding-right: 20px"> {{$index+1}}</span>{{value}}</p>
-                    <p ng-click="showMeDetail('')" ng-show="myDetailPage == key"><span
+                    <p ng-click="showMeDetail('')" class="showDetailInfo" ng-show="myDetailPage == key"><span
                             style="padding-right: 20px"> {{$index+1}}</span>{{value}}</p>
                     <!--</li>-->
                 </div>
