@@ -176,9 +176,9 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                                     }
                                 },
                                 data: [
-                                    {value: parseFloat($scope.negative * 100), name: 'negative'},
-                                    {value: parseFloat(0.3 * 100), name: 'neutral'},
-                                    {value: parseFloat($scope.positive * 100), name: 'positive'}
+                                    {value: parseFloat(0.0162 * 100).toFixed(2), name: 'negative'},
+                                    {value: parseFloat(0.2356 * 100).toFixed(2), name: 'neutral'},
+                                    {value: parseFloat(0.7482 * 100).toFixed(2), name: 'positive'}
                                 ]
                             }
                         ]
@@ -224,7 +224,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                                 name: 'Negative',
                                 type: 'bar',
                                 stack: 'sentimental',
-                                data: [120, 132, 101, 134, 290, 230, 220]
+                                data: [62, 82, 91, 84, 109, 110, 120]
                             },
                             {
                                 name: 'Neutral',
@@ -236,7 +236,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                                 name: 'Positive',
                                 type: 'bar',
                                 stack: 'sentimental',
-                                data: [62, 82, 91, 84, 109, 110, 120]
+                                data: [120, 132, 101, 134, 290, 230, 220]
                             }
                         ]
                     };
