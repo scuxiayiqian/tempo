@@ -13,7 +13,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
     }])
 
     .factory('DataService', ['$http', function ($http) {
-        var BaseUrl = "http://172.16.1.47:9090";
+        var BaseUrl = "http://localhost:9090";
 
         var getInfoByDayRequest = function (keyword) {
             return $http({
@@ -87,6 +87,8 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
         $scope.isNegative = false;
         $scope.isPositive = false;
         $scope.isNeutral = false;
+        $scope.startDate='';
+        $scope.endDate='';
         $("#searchWord").focus(function () {
             $(".home-page").css("top", "-51%");
 
@@ -176,9 +178,9 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                                     }
                                 },
                                 data: [
-                                    {value: parseFloat(0.0162 * 100).toFixed(2), name: 'negative'},
-                                    {value: parseFloat(0.2356 * 100).toFixed(2), name: 'neutral'},
-                                    {value: parseFloat(0.7482 * 100).toFixed(2), name: 'positive'}
+                                    {value: parseFloat(0.17 * 100).toFixed(2), name: 'negative'},
+                                    {value: parseFloat(0.23 * 100).toFixed(2), name: 'neutral'},
+                                    {value: parseFloat(0.6 * 100).toFixed(2), name: 'positive'}
                                 ]
                             }
                         ]
@@ -209,7 +211,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                         xAxis: [
                             {
                                 type: 'category',
-                                data: $scope.xLabels
+                                data: ['Aug','Sep','Oct','Nov','Dec','Jan']
                             }
                         ],
                         yAxis: [
@@ -224,19 +226,19 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                                 name: 'Negative',
                                 type: 'bar',
                                 stack: 'sentimental',
-                                data: [62, 82, 91, 84, 109, 110, 120]
+                                data: [62, 82, 91, 84, 109, 110]
                             },
                             {
                                 name: 'Neutral',
                                 type: 'bar',
                                 stack: 'sentimental',
-                                data: [60, 72, 71, 74, 190, 130, 110]
+                                data: [60, 72, 71, 74, 190, 130]
                             },
                             {
                                 name: 'Positive',
                                 type: 'bar',
                                 stack: 'sentimental',
-                                data: [120, 132, 101, 134, 290, 230, 220]
+                                data: [120, 132, 101, 134, 290, 230]
                             }
                         ]
                     };
@@ -250,8 +252,14 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
 
         $scope.getStartDate = function (num) {
             //var startDate = new Date(); //获取今天日期
-            var startDate = new Date('2015-01-08');
+            var startDate= new Date('2015-01-08');
+            //if($scope.endDate!== ''){
+            //    startDate = $scope.endDate;
+            //    console.log(startDate);
+            //}
+
             startDate.setDate(startDate.getDate() - num);
+
             return startDate;
         };
 
@@ -319,7 +327,8 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.bootstrap', 'chart.js'])
                         $scope.labels = [];
                         $scope.tempData = [];
                         $scope.data = [];
-                        for (var i = 0; i < 7; i++) {
+                        var iDays  =  parseInt(Math.abs($scope.startDate  -  $scope.endDate)  /  1000  /  60  /  60  /24);
+                        for (var i = iDays-1; i >= 0; i--) {
                             $scope.labels.push(formatDate($scope.getStartDate(i)));
                             $scope.tempData.push(data.data[i].freq);
                         }

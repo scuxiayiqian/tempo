@@ -44,8 +44,8 @@
         <div class="row">
             <div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Trending
+                    <div class="panel-heading new-panel-heading"  style="padding-top: 5px; !important">
+                        <h3>Trending</h3>
                         <!--<div class="datetime-area">-->
                         <!--<a href="#" class="datetime-text">weekly</a>-->
                         <!--<a href="#" class="datetime-text">quarterly</a>-->
@@ -65,6 +65,9 @@
 
         <hr/>
         <div class="row">
+            <div class="row new-panel-heading attitude" style="margin-bottom: 20px;height: 70px">
+                <h3>Attitude</h3>
+            </div>
             <div class="col-md-3">
                 <div class="sentimental-block">
                     <div class="img" ng-show="isNegative">
@@ -96,7 +99,7 @@
         </div>
         <div class="row" ng-show="!showLinks">
             <!--<div id="analysisChart" style="width:100%;height: 700px"></div>-->
-            <div id="analysisChart" style="width:100%;height: 700px"></div>
+            <div id="analysisChart" style="width:100%;height: 700px;padding-top: 20px"></div>
         </div>
 
         <div class="row links" ng-show="showLinks">

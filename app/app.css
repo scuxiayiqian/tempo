@@ -309,9 +309,10 @@ input[type="text"], input[type="password"], input[type="email"], select, textare
 
 .new-panel-heading {
     color: #fff !important;
-    /*background-color: #2C343C !important;*/
+    background-color: #2C343C !important;
     font-size: 18px !important;
     border: none !important;
+    text-align: center;
 }
 
 img {
@@ -349,4 +350,16 @@ img {
 
 .showDetailInfo:hover {
     cursor: pointer;
+}
+
+.panel-body{
+    width: 85%;
+    height: 500px; !important;
+    margin: 0 auto; !important;
+    padding-top: 30px; !important;
+}
+
+.attitude{
+    height: 70px;
+    margin-bottom: 20px;
 }
